@@ -31,3 +31,4 @@ runs:
     - ${{ inputs.host }}
     - ${{ inputs.port }}
     - ${{ inputs.ssh-key }}
+    - ${{ inputs.ssh-command }}
