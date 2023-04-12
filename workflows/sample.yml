@@ -1,0 +1,18 @@
+on:
+  push:
+    branches:
+      - 'main'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: Run terminal command. 🚀
+    steps:
+      - name: Clone to GitLab
+        uses: nextria-ca/ssh-action@main
+        with:
+          username: 'example'
+          host: 'example.com'
+          port: '22'
+          ssh-key: '<your ssh key>'
+          ssh-command: 'ls -a'

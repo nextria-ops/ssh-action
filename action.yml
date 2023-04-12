@@ -1,0 +1,33 @@
+# action.yml
+name: 'Hello World'
+description: 'Greet someone and record the time'
+inputs:
+  username:
+    description: 'The name of the ssh user.'
+    required: true
+  host:
+    description: 'The host to connect to.'
+    required: true
+  port: # id of input
+    description: 'The port to connect to.'
+    required: true
+    default: '22'
+  ssh-key:
+    description: 'The ssh key to use for authentication.'
+    clearsecret: true
+    required: true
+  ssh-command:
+    description: 'The command to run on the remote host.'
+    required: true
+    default: 'echo "Hello World"'
+outputs:
+  time: # id of output
+    description: 'The time we greeted you'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.username }}
+    - ${{ inputs.host }}
+    - ${{ inputs.port }}
+    - ${{ inputs.ssh-key }}
