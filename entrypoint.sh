@@ -7,5 +7,5 @@ SSH_KEY="$4"
 SSH_COMMAND="$5"
 
 echo "$SSH_KEY" > /tmp/ssh_key && chmod 600 /tmp/ssh_key
-ssh -tt -o StrictHostKeyChecking=no -i /tmp/ssh_key -p "$SSH_PORT" "$SSH_USER"@"$SSH_HOST" "$SSH_COMMAND" 2>/dev/stderr 1>/dev/stdout
+ssh -o StrictHostKeyChecking=no -i /tmp/ssh_key -p "$SSH_PORT" "$SSH_USER"@"$SSH_HOST" -t "$SSH_COMMAND"
 rm -rf /tmp/ssh_key
